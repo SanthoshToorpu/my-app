@@ -59,7 +59,7 @@ function Carousel({ slides }: { slides: any[] }) {
         >
           {slides.map((s, index) => (
             <div key={index} className="flex-shrink-0 flex justify-center items-center">
-              <div className="w-[30rem] bg-purple-300 rounded-xl shadow-lg flex flex-col justify-between p-10 mx-5">
+              <div className="w-[30rem] bg-purple-400 rounded-xl shadow-lg flex flex-col justify-between p-10 mx-5">
                 <div className="flex justify-between items-center">
                   <div className="flex items-center bg-gray-100 bg-opacity-40 p-2 pr-4 rounded-3xl">
                     <img src={s.imageUrl} alt="icon" className="w-6 h-6 rounded-full" />
@@ -139,7 +139,7 @@ export default function App() {
   ];
 
   return (
-    <div className="w-full m-auto pt-11">
+    <div className="w-[80%] m-auto pt-11">
       <h1 className="text-center text-3xl font-bold py-4">DRAGGABLE SLIDER WITH PAGINATION</h1>
       <Carousel slides={slides} />
     </div>
