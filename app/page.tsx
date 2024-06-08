@@ -52,7 +52,7 @@ function Carousel({ slides }: { slides: any[] }) {
         style={{ userSelect: "none" }} // Prevent text selection
       >
         <div
-          className="flex transition-transform ease-in-out duration-500" // Adjusted for smoother transition
+          className="flex transition-transform ease-in-out duration-500" // 500 ekkuva smooth transition
           style={{
             transform: `translateX(-${current * 35}%)`,
           }}
@@ -143,6 +143,10 @@ export default function App() {
   return (
     <div className="w-full m-auto pt-11 bg-purple-100 min-h-screen">
       <h1 className="text-center text-3xl font-bold py-4">DRAGGABLE SLIDER WITH PAGINATION</h1>
+      <ul className="text-center">
+        <li>Draggable with mouse after it reaches either of ends and you drag it resets</li>
+        <li>Added pagination that changes with slides</li>
+      </ul>
       <Carousel slides={slides} />
     </div>
   );
