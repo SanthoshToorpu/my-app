@@ -2,9 +2,8 @@
 import { useState, useRef } from "react";
 import { FaArrowRotateRight } from "react-icons/fa6";
 import { HiArrowUpRight } from "react-icons/hi2";
-import { SlArrowRight,SlArrowLeft  } from "react-icons/sl";
+import { SlArrowRight, SlArrowLeft } from "react-icons/sl";
 import { LiaCircleSolid } from "react-icons/lia";
-
 
 function Carousel({ slides }: { slides: any[] }) {
   const [current, setCurrent] = useState(0);
@@ -36,9 +35,9 @@ function Carousel({ slides }: { slides: any[] }) {
   };
 
   return (
-    <div className="relative flex flex-col items-center justify-center">
-      <button onClick={previousSlide} className="absolute left-20 z-10  p-2 rounded-full top-1/2 transform -translate-y-1/2">
-        <SlArrowLeft  />
+    <div className="relative flex flex-col items-center justify-center bg-gradient-to-r from-purple-200 to-purple-300 min-h-screen py-8">
+      <button onClick={previousSlide} className="absolute left-20 z-10 p-2 rounded-full top-1/2 transform -translate-y-1/2">
+        <SlArrowLeft />
       </button>
 
       <div
@@ -50,9 +49,10 @@ function Carousel({ slides }: { slides: any[] }) {
         onMouseUp={handleDragEnd}
         // @ts-ignore
         onTouchEnd={handleDragEnd}
+        style={{ userSelect: "none" }} // Prevent text selection
       >
         <div
-          className="flex transition ease-out duration-400"
+          className="flex transition-transform ease-in-out duration-500" // Adjusted for smoother transition
           style={{
             transform: `translateX(-${current * 35}%)`,
           }}
@@ -68,7 +68,7 @@ function Carousel({ slides }: { slides: any[] }) {
                   </div>
                   <div className="flex items-center space-x-2 text-white py-">
                     <FaArrowRotateRight className="w-5 h-5 mr-3" />
-                    <HiArrowUpRight   className="w-5 h-5 " />
+                    <HiArrowUpRight className="w-5 h-5 " />
                   </div>
                 </div>
                 <div className="text-white text-lg py-7 font-medium">{s.text}</div>
@@ -80,21 +80,23 @@ function Carousel({ slides }: { slides: any[] }) {
             </div>
           ))}
         </div>
-      </div>
+        <div className="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-gray-300 to-transparent opacity-80 pointer-events-none"></div>
+        </div>
 
       <button onClick={nextSlide} className="absolute right-20 z-10 p-2 rounded-full top-1/2 transform -translate-y-1/2">
-        <SlArrowRight  />
+        <SlArrowRight />
       </button>
 
       <div className="flex justify-center w-[10rem] gap-3 p-2 rounded-3xl mt-4 bg-gray-300">
-        {slides.map((_, i) => (
-          <div
-            onClick={() => setCurrent(i)}
-            key={"circle" + i}
-            className={`rounded-full w-2 h-2 cursor-pointer ${i === current ? "bg-white" : "bg-gray-500"}`}
-          ></div>
-        ))}
-      </div>
+  {slides.map((_, i) => (
+    <div
+      onClick={() => setCurrent(i)}
+      key={"circle" + i}
+      className={`rounded-full w-2 h-2 cursor-pointer transition-colors duration-300 ${i === current ? "bg-white" : "bg-gray-500"}`}
+    ></div>
+  ))}
+</div>
+
     </div>
   );
 }
@@ -139,7 +141,7 @@ export default function App() {
   ];
 
   return (
-    <div className="w-[80%] m-auto pt-11">
+    <div className="w-full m-auto pt-11 bg-purple-100 min-h-screen">
       <h1 className="text-center text-3xl font-bold py-4">DRAGGABLE SLIDER WITH PAGINATION</h1>
       <Carousel slides={slides} />
     </div>
