@@ -56,7 +56,7 @@ function Carousel({ slides }: { slides: any[] }) {
         <div
           className="flex transition-transform ease-in-out duration-500" // 500 ekkuva smooth transition
           style={{
-            transform: `translateX(-${current * 35}%)`,
+            transform: `translateX(-${current * 30}%)`,
           }}
         >
           {slides.map((s, index) => (
