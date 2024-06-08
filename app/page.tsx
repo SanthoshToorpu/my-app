@@ -56,6 +56,7 @@ function Carousel({ slides }: { slides: any[] }) {
         <div
           className="flex transition-transform ease-in-out duration-500" // 500 ekkuva smooth transition
           style={{
+            // Idhe motham last slide show percent 
             transform: `translateX(-${current * 27}%)`,
           }}
         >
