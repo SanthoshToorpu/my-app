@@ -36,6 +36,7 @@ function Carousel({ slides }: { slides: any[] }) {
 
   return (
     <div className="relative flex flex-col items-center justify-center bg-gradient-to-r from-purple-200 to-purple-300 min-h-screen py-8">
+      {/*  buttons for navigation */}
       <button onClick={previousSlide} className="absolute left-20 z-10 p-2 rounded-full top-1/2 transform -translate-y-1/2">
         <SlArrowLeft />
       </button>
@@ -43,6 +44,7 @@ function Carousel({ slides }: { slides: any[] }) {
       <div
         className="overflow-hidden relative w-[80%]"
         ref={carouselRef}
+        // movements estunna ekkuva smooth transition
         onMouseDown={handleDragStart}
         // @ts-ignore
         onTouchStart={handleDragStart}
@@ -80,9 +82,10 @@ function Carousel({ slides }: { slides: any[] }) {
             </div>
           ))}
         </div>
+        {/* Last gradient */}
         <div className="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-gray-300 to-transparent opacity-80 pointer-events-none"></div>
         </div>
-
+      {/* buttons for navigation */}
       <button onClick={nextSlide} className="absolute right-20 z-10 p-2 rounded-full top-1/2 transform -translate-y-1/2">
         <SlArrowRight />
       </button>
